@@ -17,17 +17,11 @@ def create_app(test_config=None):
     app.config['SQLALCHEMY_DATABASE_URI']=  'sqlite:///bookmarks.db'
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS']=False
     app.config['JWT_SECRET_KEY']='JWT_SECRET_KEY'
+    app.config['SECRET_KEY']='SECRET_KEY'
     app.config['SWAGGER']={
         'title': "Bookmarkss API",
         'uiversion':3
     }
-
-    if test_config is None:
-        app.config.from_mapping(
-            SECRET_KEY=os.environ.get("SECRET_KEY"),
-        )
-    else:
-        app.config.from_mapping(test_config)
 
     db.app=app
     db.init_app(app)
