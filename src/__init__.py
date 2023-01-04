@@ -23,13 +23,6 @@ def create_app(test_config=None):
         'uiversion':3
     }
 
-    if test_config is None:
-        app.config.from_mapping(
-            SECRET_KEY=os.environ.get("SECRET_KEY"),
-        )
-    else:
-        app.config.from_mapping(test_config)
-
     db.app=app
     db.init_app(app)
 
