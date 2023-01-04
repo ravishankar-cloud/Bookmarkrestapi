@@ -34,7 +34,7 @@ def create_app(test_config=None):
     Swagger(app,config=swagger_config,template=template)
 
     def create_database(app):
-       if not path.exists('website/' + DB_NAME):
+       if not path.exists('src/' + 'bookmarks.db'):
             with app.app_context():
              db.create_all()
             
