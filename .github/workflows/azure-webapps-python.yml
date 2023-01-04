@@ -22,7 +22,7 @@ name: Build and deploy Python app to Azure Web App
 env:
   AZURE_WEBAPP_NAME: bookmarksapi  # set this to the name of your Azure Web App
   PYTHON_VERSION: '3.11'              # set this to the Python version to use
-  FLASK_APP: src
+  FLASK_APP: "src"
 
 on:
   push:
