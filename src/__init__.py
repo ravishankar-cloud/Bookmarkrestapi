@@ -30,8 +30,14 @@ def create_app(test_config=None):
     
     app.register_blueprint(auth)
     app.register_blueprint(bookmarks)
+    create_database(app)
     Swagger(app,config=swagger_config,template=template)
 
+    def create_database(app):
+       if not path.exists('website/' + DB_NAME):
+            with app.app_context():
+             db.create_all()
+            
     def redirect_to_url(short_url):
         bookmark=Bookmark.query.filter_by(short_url=short_url).first_or_404()
         if bookmark:
