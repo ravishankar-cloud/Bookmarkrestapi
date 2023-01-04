@@ -15,7 +15,6 @@ from src.config.swagger import template, swagger_config
 def create_app():
     app=Flask(__name__,instance_relative_config=True)
     app.config['FLASK_APP']="src"
-    app.config['FLASK_ENV']=development
     app.config['SQLALCHEMY_DATABASE_URI']=  'sqlite:///bookmarks.db'
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS']=False
     app.config['JWT_SECRET_KEY']='JWT_SECRET_KEY'
