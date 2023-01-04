@@ -12,7 +12,7 @@ from flasgger import Swagger, swag_from
 from src.config.swagger import template, swagger_config
 
 
-def create_app(test_config=None):
+def create_app():
     app=Flask(__name__,instance_relative_config=True)
     app.config['SQLALCHEMY_DATABASE_URI']=  'sqlite:///bookmarks.db'
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS']=False
