@@ -25,6 +25,7 @@ def create_app():
     app.register_blueprint(auth)
     app.register_blueprint(bookmarks)
     Swagger(app,config=swagger_config,template=template)
+    db.create_all()
 
             
     def redirect_to_url(short_url):
