@@ -16,6 +16,10 @@ from src.config.swagger import template, swagger_config
 def create_app():
     app=Flask(__name__,instance_relative_config=True)
     app.config['SQLALCHEMY_DATABASE_URI']=  'sqlite:///bookmarks.db'
+    app.config['SECRET_KEY']="SECRET_KEY"
+    app.config['JWT_SECRET_KEY']="JWT_SECRET_KEY"
+
+    
 
     db.app=app
     db.init_app(app)
