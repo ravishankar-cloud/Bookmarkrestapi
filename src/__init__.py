@@ -30,7 +30,8 @@ def create_app():
     Swagger(app,config=swagger_config,template=template)
     db.create_all()
 
-            
+    @app.get('/<short_url>')
+    @swag_from('./docs/short_url.yaml')  
     def redirect_to_url(short_url):
         bookmark=Bookmark.query.filter_by(short_url=short_url).first_or_404()
         if bookmark:
