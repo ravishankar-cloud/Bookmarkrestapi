@@ -18,8 +18,7 @@ def create_app():
     app.config['SQLALCHEMY_DATABASE_URI']=  'sqlite:///bookmarks.db'
     app.config['SECRET_KEY']="SECRET_KEY"
     app.config['JWT_SECRET_KEY']="JWT_SECRET_KEY"
-
-    
+    app.config['SQLALCHEMY_TRACK_MODIFICATIONS']=False
 
     db.app=app
     db.init_app(app)
